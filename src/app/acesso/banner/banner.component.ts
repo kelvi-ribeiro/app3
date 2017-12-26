@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger,state,style } from '@angular/core/';
+import { trigger,state,style,transition,animate } from '@angular/core/';
+
 
 @Component({
   selector: 'app-banner',
@@ -12,7 +13,13 @@ import { trigger,state,style } from '@angular/core/';
       })),
       state('visivel',style({
         opacity:1
-      }))
+      })),
+      transition('escondido <=> visivel',animate('1s ease-in')), // <=> funciona de um lado para outro, assim nos 
+                                                                        //possilitando usar esse trecho de 
+                                                                        //código para os dois 
+                                                                        //tipos de transação
+     
+
     ])
   ]
 })
@@ -24,5 +31,8 @@ export class BannerComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
+  public toogleEstadoAnimacao():void{
+    this.estado = this.estado ==='visivel'?'escondido':'visivel'
+  }
 }
