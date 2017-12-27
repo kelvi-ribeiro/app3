@@ -3,7 +3,7 @@ import {FormGroup,FormControl} from '@angular/forms'
 import {Usuario} from '../usuario.model'
 import {Autenticacao} from '../../autenticacao.service'
 
-import {AutenticacaoGuard} from './autenticacao-guard.service'
+import {AutenticacaoGuard} from '../../autenticacao-guard.service'
 
 @Component({
   selector: 'app-cadastro',
