@@ -25,7 +25,7 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit() {
   }
-  public exibirPainelCadastro():void{
+  public exibirPainelLogin():void{
     this.exibirPainel.emit('login')
   }
 
@@ -40,7 +40,7 @@ export class CadastroComponent implements OnInit {
 
     this.autenticacao.cadastrarUsuario(usuario)
 
-    console.log(usuario)
+    .then(()=>this.exibirPainelLogin())
   }
 
 }
