@@ -3,6 +3,7 @@ import {FormGroup,FormControl} from '@angular/forms'
 import{Bd} from '../../bd.service'
 import * as firebase from 'firebase'
 
+
 @Component({
   selector: 'app-incluir-publicacao',
   templateUrl: './incluir-publicacao.component.html',
@@ -10,6 +11,7 @@ import * as firebase from 'firebase'
 })
 export class IncluirPublicacaoComponent implements OnInit {
   public email:string
+  private imagem:any
   public formulario:FormGroup = new FormGroup({
     'titulo':new FormControl(null)
   })
@@ -27,11 +29,12 @@ export class IncluirPublicacaoComponent implements OnInit {
   public publicar():void{
    this.bd.publicar({
      email:this.email,
-     titulo:this.formulario.value.titulo
+     titulo:this.formulario.value.titulo,
+     imagem:this.imagem[0]
    })
   }
   public preparaImagemUpload(event:Event):void{
-    console.log((<HTMLInputElement>event.target).files)
+   this.imagem =  (<HTMLInputElement>event.target).files
   }
 
 }
