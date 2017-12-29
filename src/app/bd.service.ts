@@ -6,7 +6,7 @@ export class Bd {
     constructor(private progresso: Progresso) { }
 
     public publicar(publicacao: any): void {
-        console.log(publicacao)
+        //console.log(publicacao)
         let nomeImagem = Date.now()
         firebase.database().ref(`publicacoes/${btoa(publicacao.email)}`)
             .push({ titulo: publicacao.titulo })
@@ -39,5 +39,12 @@ export class Bd {
 
 
 
+    }
+    public consultaPublicacoes (emailUsuario:string):any{
+        firebase.database().ref(`publicacoes/${btoa(emailUsuario)}`)
+        .once('value')
+        .then((snapshot:any)=>{
+            console.log(snapshot.val())
+        })
     }
 }
