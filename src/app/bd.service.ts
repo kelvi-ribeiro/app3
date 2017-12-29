@@ -17,7 +17,7 @@ export class Bd{
             (snapshot:any)=>{
                 this.progresso.status ='Andamento'
                 this.progresso.estado = snapshot
-                console.log('Snapshot capturado no on(): ',snapshot)
+                //console.log('Snapshot capturado no on(): ',snapshot)
             },
             (error)=>{
                 this.progresso.status ='Erro'
